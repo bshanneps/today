@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+     {% load static %}
+</head>
+<body>
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Published Date</th>
+        <th>Type</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for question in question %}
+    <tr>
+        <td>{{ question.title }}</td>
+        <td>{{ question.description }}</td>
+        <td>{{ question.pub_date }}</td>
+        <td>{{ question.type }}</td>
+        <td>
+            <a href="/edit/{{ question.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+            <a href="/delete/{{ question.id }}">Delete</a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
